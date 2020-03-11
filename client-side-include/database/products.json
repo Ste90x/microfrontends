@@ -1,0 +1,44 @@
+[
+  {
+    "id": "0",
+    "name": "Pizza",
+    "price": "4,99",
+    "description": "SUCH GOOD, MUCH WOW!",
+    "image": "https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg"
+  },
+  {
+    "id": "1",
+    "name": "Pasta",
+    "price": "3,99",
+    "description": "SUCH WOW, MUCH GOOD!",
+    "image": "https://www.thespruceeats.com/thmb/hJtP5QhBfZayjUD7RCyVbydJHtk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-885397466-5c0cc0634cedfd00012758a7.jpg"
+  },
+  {
+    "id": "2",
+    "name": "Burger",
+    "price": "3,99",
+    "description": "WOW SUCH GOOD MUCH!",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/1200px-RedDot_Burger.jpg"
+  },
+  {
+    "id": "3",
+    "name": "Steak",
+    "price": "15,99",
+    "description": "SUCH MUCH, GOOD WOW!",
+    "image": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_16:9/k%2Farchive%2F2816f86937ebc7019a513d858cec8e0c55d38890"
+  },
+  {
+    "id": "4",
+    "name": "Fish",
+    "price": "10,99",
+    "description": "SUCH BAH, NOT WOW!",
+    "image": "https://www.thisiscolossal.com/wp-content/uploads/2019/06/tsubaki-12.jpg"
+  },
+  {
+    "id": "5",
+    "name": "Salad",
+    "price": "3,99",
+    "description": "SUCH GREEN, MUCH BAH!",
+    "image": "https://natashaskitchen.com/wp-content/uploads/2019/02/Greek-Salad.jpg"
+  }
+]

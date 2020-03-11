@@ -1,0 +1,15 @@
+.Product {
+  display: grid;
+  background-color: beige;
+  width: 60%;
+  margin: 16px auto;
+  border: 1px solid grey;
+  box-shadow: 0 2px 3px darkgray;
+  padding: 16px;
+  text-align: center;
+  img {
+    border: 1px solid grey;
+    width: inherit;
+    align-self: center;
+  }
+}
