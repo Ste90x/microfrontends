@@ -12,12 +12,18 @@ app.use(function(req, res, next) {
 });
 
 router.get("/", function(req, res) {
-  res.sendFile(path.join(__dirname + "/public/index.html"));
+  res.sendFile(path.join(__dirname + "/index.html"));
   //__dirname : It will resolve to your project folder.
 });
 
 router.get("/products", function(req, res) {
   console.log("Request at /products incoming...");
+  res.sendFile(path.join(__dirname + "/database/products.json"));
+});
+
+router.get("/products/:id", function(req, res) {
+  console.log("Request at /products/:id incoming...");
+  //TODO scarluccio: JSON-Parser for sending only the element with the specific id
   res.sendFile(path.join(__dirname + "/database/products.json"));
 });
 

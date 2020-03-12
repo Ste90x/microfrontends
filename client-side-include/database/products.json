@@ -4,41 +4,41 @@
     "name": "Pizza",
     "price": "4,99",
     "description": "SUCH GOOD, MUCH WOW!",
-    "image": "https://www.delonghi.com/Global/recipes/multifry/pizza_fresca.jpg"
+    "image": "https://images.alphacoders.com/959/thumb-1920-959369.jpg"
   },
   {
     "id": "1",
     "name": "Pasta",
     "price": "3,99",
     "description": "SUCH WOW, MUCH GOOD!",
-    "image": "https://www.thespruceeats.com/thmb/hJtP5QhBfZayjUD7RCyVbydJHtk=/960x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-885397466-5c0cc0634cedfd00012758a7.jpg"
+    "image": "https://s1.1zoom.me/b6648/834/Tomatoes_Pasta_Fork_Plate_544330_1920x1080.jpg"
   },
   {
     "id": "2",
     "name": "Burger",
     "price": "3,99",
     "description": "WOW SUCH GOOD MUCH!",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/1200px-RedDot_Burger.jpg"
+    "image": "https://images6.alphacoders.com/659/thumb-1920-659193.jpg"
   },
   {
     "id": "3",
     "name": "Steak",
     "price": "15,99",
     "description": "SUCH MUCH, GOOD WOW!",
-    "image": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_16:9/k%2Farchive%2F2816f86937ebc7019a513d858cec8e0c55d38890"
+    "image": "https://s1.1zoom.me/b6359/903/Meat_products_Salt_536334_1920x1080.jpg"
   },
   {
     "id": "4",
     "name": "Fish",
     "price": "10,99",
     "description": "SUCH BAH, NOT WOW!",
-    "image": "https://www.thisiscolossal.com/wp-content/uploads/2019/06/tsubaki-12.jpg"
+    "image": "https://cookingwithdog.com/wp-content/uploads/2017/02/salmon-yakizuke-00.jpg"
   },
   {
     "id": "5",
     "name": "Salad",
     "price": "3,99",
     "description": "SUCH GREEN, MUCH BAH!",
-    "image": "https://natashaskitchen.com/wp-content/uploads/2019/02/Greek-Salad.jpg"
+    "image": "https://images.wallpaperscraft.com/image/salad_vegetables_delicious_diet_71637_1920x1080.jpg"
   }
 ]
