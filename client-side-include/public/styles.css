@@ -3,11 +3,19 @@ body {
   padding: 0;
 }
 
-.productList {
+iframe {
   margin: 0;
   padding: 0;
   border: none;
+}
+
+.selected-product-details {
   width: 100%;
-  height: 90vh;
+  height: 80vh;
+}
+
+.product-list {
+  width: 100%;
+  height: 50vh;
   overflow: hidden;
 }

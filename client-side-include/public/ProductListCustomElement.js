@@ -1,6 +1,7 @@
 class ProductList extends HTMLElement {
   connectedCallback() {
-    this.innerHTML = '<iframe class="productList" src="http://localhost:3000">';
+    this.innerHTML =
+      '<iframe scrolling="no" class="product-list" src="http://localhost:3000">';
   }
 
   disconnectedCallback() {}

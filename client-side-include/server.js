@@ -6,14 +6,16 @@ const router = express.Router();
 const port = 5000;
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
   next();
 });
 
 router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname + "/index.html"));
-  //__dirname : It will resolve to your project folder.
 });
 
 router.get("/products", function(req, res) {
@@ -35,4 +37,4 @@ app.use("/", router);
 
 app.listen(process.env.port || port);
 
-console.log("Running at Port "  + port);
+console.log("Running at Port " + port);

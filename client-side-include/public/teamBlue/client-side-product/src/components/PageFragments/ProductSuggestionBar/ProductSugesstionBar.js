@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProductSuggestionBar.scss";
-import Product from "../../Product/Product";
+import Product from "../Product/Product";
 import axios from "axios";
 
 const ProductSuggestionBar = () => {
@@ -17,7 +17,7 @@ const ProductSuggestionBar = () => {
         resData.forEach(element => loadedState.push(element));
         setProductsState(loadedState);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.error(err));
   }, []);
 
   const onSelectedHandler = (event, index) => {
@@ -27,17 +27,21 @@ const ProductSuggestionBar = () => {
 
   return (
     <section className="suggestionBar box columns is-1">
-      {productsState.map(product => (
-        <Product
-          key={product.id}
-          id={product.id}
-          name={product.name}
-          price={product.price}
-          description={product.description}
-          picture={product.image}
-          selectedHandler={onSelectedHandler}
-        />
-      ))}
+      {productsState.length === 0 ? (
+        <h1>NETWORK ISSUES</h1>
+      ) : (
+        productsState.map(product => (
+          <Product
+            key={product.id}
+            id={product.id}
+            name={product.name}
+            price={product.price}
+            description={product.description}
+            picture={product.image}
+            selectedHandler={onSelectedHandler}
+          />
+        ))
+      )}
     </section>
   );
 };

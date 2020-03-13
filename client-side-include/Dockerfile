@@ -1,3 +1,5 @@
+# TODO scarluccio: DOCKER FILE
+
 # This is our base community provided image,
 # with some minimal distribution of linux
 # that comes with NodeJs v10 (and npm) already installed
