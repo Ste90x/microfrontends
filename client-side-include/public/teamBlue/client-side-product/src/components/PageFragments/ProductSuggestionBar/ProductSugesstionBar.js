@@ -21,8 +21,11 @@ const ProductSuggestionBar = () => {
   }, []);
 
   const onSelectedHandler = (event, index) => {
-    console.log(event.target.id);
-    localStorage.setItem("selectedProductId", event.target.id);
+    // localStorage.setItem("selectedProductId", event.target.id);
+    window.parent.postMessage(
+      { selectedProductId: event.target.id },
+      "http://localhost:5000"
+    );
   };
 
   return (

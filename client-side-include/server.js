@@ -2,16 +2,22 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const router = express.Router();
+const fs = require("fs");
+
+const _ = require("underscore");
 
 const port = 5000;
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
+  var allowedOrigins = ["http://localhost:3000", "http://localhost:4200"];
+  var origin = req.headers.origin;
+  if (allowedOrigins.indexOf(origin) > -1) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+  res.header("Access-Control-Allow-Methods", "GET, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", true);
+  return next();
 });
 
 router.get("/", function(req, res) {
@@ -24,9 +30,12 @@ router.get("/products", function(req, res) {
 });
 
 router.get("/products/:id", function(req, res) {
-  console.log("Request at /products/:id incoming...");
-  //TODO scarluccio: JSON-Parser for sending only the element with the specific id
-  res.sendFile(path.join(__dirname + "/database/products.json"));
+  console.log("Request at /products/" + req.params.id + " incoming...");
+  let products = JSON.parse(
+    fs.readFileSync(path.join(__dirname + "/database/products.json"))
+  );
+  let filteredProduct = _.where(products, { id: req.params.id });
+  res.send(filteredProduct[0]);
 });
 
 //add static folder

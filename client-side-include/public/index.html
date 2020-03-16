@@ -28,12 +28,46 @@
       </nav>
     </div>
 
-    <section class="apps-hook">
-      <product-details></product-details>
-      <product-list></product-list>
-    </section>
+    <main class="apps-hook">
+      <!-- <product-details></product-details>
+      <product-list></product-list> -->
+      <iframe
+        id="selected-product-details"
+        class="selected-product-details"
+        src="http://localhost:4200"
+        frameborder="0"
+      ></iframe>
+      <iframe
+        id="product-list"
+        class="product-list"
+        src="http://localhost:3000"
+        frameborder="0"
+      ></iframe>
+    </main>
 
-    <script src="ProductDetailsCustomElement.js" async></script>
-    <script src="ProductListCustomElement.js" async></script>
+    <!-- <script src="ProductDetailsCustomElement.js" async></script>
+    <script src="ProductListCustomElement.js" async></script> -->
+    <script>
+      let eventMethod = window.addEventListener
+        ? "addEventListener"
+        : "attachEvent";
+      let eventer = window[eventMethod];
+      let messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+      // Listen to message from child window
+      eventer(
+        messageEvent,
+        function(e) {
+          sessionStorage.setItem("selectedProductId", e.data.selectedProductId);
+          window.document
+            .getElementById("selected-product-details")
+            .contentWindow.postMessage(
+              sessionStorage.getItem("selectedProductId"),
+              "http://localhost:4200"
+            );
+        },
+        false
+      );
+    </script>
   </body>
 </html>

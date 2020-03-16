@@ -1,21 +1,37 @@
-import { Component } from "@angular/core";
+import { Component, ViewEncapsulation, OnInit } from "@angular/core";
+import { Product } from "./models/Product/product.model";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
+  encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
-  title = "client-side-product-details";
-  test = "NOTHING";
+export class AppComponent implements OnInit {
+  product: Product;
 
-  domains = ["http://localhost:5000", "http://localhost:3000"];
+  constructor(private http: HttpClient) {}
 
-  key = "selectedProductID";
+  ngOnInit() {
+    let eventMethod = window.addEventListener
+      ? "addEventListener"
+      : "attachEvent";
+    let eventer = window[eventMethod];
+    let messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
-  onClick() {
-    this.test = localStorage.getItem(this.key);
-    //TODO scarluccio: read cross domain local storage
-    console.log(this.test);
+    eventer(
+      messageEvent,
+      e => {
+        console.log(e.data);
+        this.http
+          .get("http://localhost:5000/products/" + e.data)
+          .subscribe((response: Product) => {
+            console.log(response);
+            if (response !== null) this.product = response;
+          });
+      },
+      false
+    );
   }
 }

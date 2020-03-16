@@ -2,7 +2,7 @@ import React from "react";
 import "./Product.scss";
 
 const Product = props => (
-  <a
+  <button
     id={props.id}
     onClick={props.selectedHandler}
     className="Product card column is-2"
@@ -34,7 +34,7 @@ const Product = props => (
         </p>
       </span>
     </div>
-  </a>
+  </button>
 );
 
 export default Product;
