@@ -1,4 +1,7 @@
-<app-product-visualisation [product]="product"></app-product-visualisation>
+<app-product-visualisation
+  *ngIf="this.product !== undefined"
+  [product]="product"
+></app-product-visualisation>
 <app-product-details [product]="product"></app-product-details>
 
 <router-outlet></router-outlet>
