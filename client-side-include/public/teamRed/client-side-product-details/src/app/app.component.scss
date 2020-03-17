@@ -5,7 +5,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-app-root {
+app-root > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
   section.product-visualisation {

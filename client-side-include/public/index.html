@@ -22,31 +22,19 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper cyan darken-3">
-          <a href="" class="brand-logo">IFrame Microfrontends</a>
+          <a href="" class="brand-logo center">IFrame Microfrontends</a>
           <ul class="right hide-on-med-and-down"></ul>
         </div>
       </nav>
     </div>
 
     <main class="apps-hook">
-      <!-- <product-details></product-details>
-      <product-list></product-list> -->
-      <iframe
-        id="selected-product-details"
-        class="selected-product-details"
-        src="http://localhost:4200"
-        frameborder="0"
-      ></iframe>
-      <iframe
-        id="product-list"
-        class="product-list"
-        src="http://localhost:3000"
-        frameborder="0"
-      ></iframe>
+      <product-details></product-details>
+      <product-list></product-list>
     </main>
 
-    <!-- <script src="ProductDetailsCustomElement.js" async></script>
-    <script src="ProductListCustomElement.js" async></script> -->
+    <script src="ProductDetailsCustomElement.js" async></script>
+    <script src="ProductListCustomElement.js" async></script>
     <script>
       let eventMethod = window.addEventListener
         ? "addEventListener"

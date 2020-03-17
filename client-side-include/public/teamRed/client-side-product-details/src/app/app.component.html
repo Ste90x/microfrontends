@@ -1,7 +1,9 @@
-<app-product-visualisation
-  *ngIf="this.product !== undefined"
-  [product]="product"
-></app-product-visualisation>
-<app-product-details [product]="product"></app-product-details>
+<div *ngIf="this.product !== undefined">
+  <app-product-visualisation [product]="product"></app-product-visualisation>
+  <app-product-details [product]="product"></app-product-details>
+</div>
+<div *ngIf="this.product === undefined">
+  <h1>Please select a Product.</h1>
+</div>
 
 <router-outlet></router-outlet>
