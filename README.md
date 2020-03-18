@@ -12,3 +12,4 @@ requirements:
 Portal -> VanillaJS/Express.js -> localhost:5000 (MAIN PAGE) 
 Product list -> React -> localhost:3000
 Product details -> Angular -> localhost:4200
+Cart -> VueJS -> localhost:8080

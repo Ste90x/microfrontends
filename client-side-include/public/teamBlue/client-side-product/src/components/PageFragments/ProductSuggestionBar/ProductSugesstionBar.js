@@ -29,7 +29,7 @@ const ProductSuggestionBar = () => {
   };
 
   return (
-    <section className="suggestionBar box columns is-1">
+    <section className="suggestionBar columns is-1">
       {productsState.length === 0 ? (
         <h1>NETWORK ISSUES</h1>
       ) : (

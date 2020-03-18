@@ -21,7 +21,7 @@
 
     <div class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper cyan darken-3">
+        <div class="nav-wrapper teal">
           <a href="" class="brand-logo center">IFrame Microfrontends</a>
           <ul class="right hide-on-med-and-down"></ul>
         </div>
@@ -31,10 +31,12 @@
     <main class="apps-hook">
       <product-details></product-details>
       <product-list></product-list>
+      <cart-list></cart-list>
     </main>
 
     <script src="ProductDetailsCustomElement.js" async></script>
     <script src="ProductListCustomElement.js" async></script>
+    <script src="CartListCustomElement.js" async></script>
     <script>
       let eventMethod = window.addEventListener
         ? "addEventListener"

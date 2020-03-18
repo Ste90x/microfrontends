@@ -14,4 +14,9 @@ CD %~dp0client-side-include\public\teamRed\client-side-product-details
 call npm install -g @angular/cli
 call npm install
 
+echo setting up vue-client..
+CD %~dp0client-side-include\public\teamGreen\client-side-cart
+call npm install -g @vue/cli
+call npm install
+
 CD %~dp0

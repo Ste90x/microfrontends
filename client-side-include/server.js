@@ -9,7 +9,11 @@ const _ = require("underscore");
 const port = 5000;
 
 app.use(function(req, res, next) {
-  var allowedOrigins = ["http://localhost:3000", "http://localhost:4200"];
+  var allowedOrigins = [
+    "http://localhost:3000",
+    "http://localhost:4200",
+    "http://localhost:8080"
+  ];
   var origin = req.headers.origin;
   if (allowedOrigins.indexOf(origin) > -1) {
     res.setHeader("Access-Control-Allow-Origin", origin);
