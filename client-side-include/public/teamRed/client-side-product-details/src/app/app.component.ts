@@ -14,24 +14,35 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    let eventMethod = window.addEventListener
+    const eventMethod = window.addEventListener
       ? "addEventListener"
       : "attachEvent";
-    let eventer = window[eventMethod];
-    let messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+    const eventer = window[eventMethod];
+    const messageEvent =
+      eventMethod === "attachEvent" ? "onmessage" : "message";
 
     eventer(
       messageEvent,
       e => {
-        console.log(e.data);
+        // console.log(e.data);
         this.http
-          .get("http://localhost:5000/products/" + e.data)
+          .get("http://localhost:5000/products/" + e.data.value)
           .subscribe((response: Product) => {
-            console.log(response);
-            if (response !== null) this.product = response;
+            // console.log(response);
+            if (response !== null) {
+              this.product = response;
+            }
           });
       },
       false
+    );
+  }
+
+  onProductAndAmountSubmitted(event) {
+    // console.log(event);
+    window.parent.postMessage(
+      { selectedAmountOfProduct: event.amount },
+      "http://localhost:5000"
     );
   }
 }

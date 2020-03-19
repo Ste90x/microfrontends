@@ -21,7 +21,7 @@
 
     <div class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper teal">
+        <div class="nav-wrapper cyan darken-4">
           <a href="" class="brand-logo center">IFrame Microfrontends</a>
           <ul class="right hide-on-med-and-down"></ul>
         </div>
@@ -48,13 +48,46 @@
       eventer(
         messageEvent,
         function(e) {
-          sessionStorage.setItem("selectedProductId", e.data.selectedProductId);
-          window.document
-            .getElementById("selected-product-details")
-            .contentWindow.postMessage(
-              sessionStorage.getItem("selectedProductId"),
-              "http://localhost:4200"
+          // console.log(e.origin);
+          // TODO scarluccio: USE ENVIRONMENT VARIABLES
+          if (e.origin === "http://localhost:3000") {
+            sessionStorage.setItem(
+              "selectedProductId",
+              e.data.selectedProductId
             );
+
+            window.document
+              .getElementById("selected-product-details")
+              .contentWindow.postMessage(
+                {
+                  message: "selectedProductId",
+                  value: sessionStorage.getItem("selectedProductId")
+                },
+                "http://localhost:4200"
+              );
+          }
+          if (e.origin === "http://localhost:4200") {
+            sessionStorage.setItem(
+              "selectedAmountOfProduct",
+              e.data.selectedAmountOfProduct
+            );
+
+            window.document
+              .getElementById("cart-list")
+              .contentWindow.postMessage(
+                [
+                  {
+                    message: "selectedProductId",
+                    value: sessionStorage.getItem("selectedProductId")
+                  },
+                  {
+                    message: "selectedAmountOfProduct",
+                    value: sessionStorage.getItem("selectedAmountOfProduct")
+                  }
+                ],
+                "http://localhost:8080"
+              );
+          }
         },
         false
       );

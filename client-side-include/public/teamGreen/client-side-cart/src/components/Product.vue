@@ -17,16 +17,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .product-blob {
+  grid-area: blob;
+
   margin: 10px 5% 10px 5%;
   padding: 5px;
-  width: 60%;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
 
+  background-color: whitesmoke;
   box-shadow: 1px 1px 2px gray;
   border-radius: 10px;
 

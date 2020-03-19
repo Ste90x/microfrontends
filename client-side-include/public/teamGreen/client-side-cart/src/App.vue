@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <app-cart :products="products"></app-cart>
+    <app-cart :productTuples="productTuples"></app-cart>
   </div>
 </template>
 
@@ -10,18 +10,68 @@ export default {
   name: "App",
   data: () => {
     return {
-      products: []
+      productTuples: []
     };
   },
   beforeCreate() {
-    this.$http
-      .get("http://localhost:5000/products")
-      .then(res => {
-        console.log((this.products = res.body));
-      })
-      .catch(e => console.error(e));
+    const eventMethod = window.addEventListener
+      ? "addEventListener"
+      : "attachEvent";
+    const eventer = window[eventMethod];
+    const messageEvent =
+      eventMethod === "attachEvent" ? "onmessage" : "message";
+
+    eventer(
+      messageEvent,
+      e => {
+        if (
+          e.data[0].message === "selectedProductId" &&
+          e.data[1].message === "selectedAmountOfProduct"
+        ) {
+          this.$http
+            .get("http://localhost:5000/products/" + e.data[0].value)
+            .then(response => {
+              // this.productTuples.push({
+              //   product: response.body,
+              //   amount: e.data[1].value
+              // });
+              //TEST
+              this.addToProductTuples(
+                {
+                  product: response.body,
+                  amount: e.data[1].value
+                },
+                response.body,
+                e.data[1].value
+              );
+            })
+            .catch(e => console.error(e));
+        }
+      },
+      false
+    );
   },
-  components: { appCart: Cart }
+  components: { appCart: Cart },
+  methods: {
+    addToProductTuples(newProductTuple, body, value) {
+      //TODO scarluccio: check if product is already in cart
+
+      let exists = false;
+      this.productTuples.forEach(productTuple => {
+        if (productTuple.product.id === newProductTuple.product.id) {
+          productTuple.amount += parseInt(newProductTuple.amount);
+          exists = true;
+        }
+      });
+
+      if (exists === false) {
+        this.productTuples.push({
+          product: body,
+          amount: parseInt(value)
+        });
+      }
+    }
+  }
 };
 </script>
 

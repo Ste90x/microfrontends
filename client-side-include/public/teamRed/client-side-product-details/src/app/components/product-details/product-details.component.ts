@@ -1,6 +1,13 @@
-import { Component, Input, ViewEncapsulation } from "@angular/core";
+import {
+  Component,
+  Input,
+  ViewEncapsulation,
+  ViewChild,
+  Output,
+  EventEmitter
+} from "@angular/core";
 import { Product } from "src/app/models/Product/product.model";
-
+import { NgForm } from "@angular/forms";
 @Component({
   selector: "app-product-details",
   templateUrl: "./product-details.component.html",
@@ -9,4 +16,19 @@ import { Product } from "src/app/models/Product/product.model";
 })
 export class ProductDetailsComponent {
   @Input() product: Product;
+  @Output() amountSubmitted = new EventEmitter<{
+    product: Product;
+    amount: number;
+  }>();
+
+  defaultAmount = "1";
+
+  @ViewChild("amountForm") amountForm: NgForm;
+
+  onSubmitAmount() {
+    this.amountSubmitted.emit({
+      product: this.product,
+      amount: this.amountForm.value.prodAmount
+    });
+  }
 }
