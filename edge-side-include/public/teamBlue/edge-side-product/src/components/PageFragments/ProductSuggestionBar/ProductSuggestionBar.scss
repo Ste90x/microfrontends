@@ -1,0 +1,9 @@
+.suggestionBar {
+  display: grid;
+  margin: auto;
+  margin-top: 0;
+  padding: 10px;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
