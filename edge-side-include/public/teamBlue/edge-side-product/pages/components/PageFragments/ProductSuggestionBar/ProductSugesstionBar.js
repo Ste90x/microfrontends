@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./ProductSuggestionBar.scss";
 import Product from "../Product/Product";
 import axios from "axios";
 

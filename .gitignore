@@ -105,3 +105,6 @@ dist
 
 # History
 .history
+
+# VS Code
+.vscode
