@@ -1,11 +1,13 @@
 # microfrontends
 
+ONLY CLIENT SIDE WORKS FOR NOW
+
 requirements: 
 - Node.js
 
 1. Use the "setup.bat" to install all packages and dependencies
 
-2. Use the "start.bat" to start all servers and open up the browserpage
+2. Use the "client_side_start.bat" to start all servers and open up the browserpage
 
 !!! The mainpage may take a while to render everything correctly due to the servers of all frameworks that need to be started first. Check the current status of the servers in their respective cmd-windows. !!!
 
