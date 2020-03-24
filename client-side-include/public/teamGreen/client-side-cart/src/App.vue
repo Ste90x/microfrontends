@@ -54,7 +54,6 @@ export default {
   components: { appCart: Cart },
   methods: {
     addToProductTuples(newProductTuple, body, value) {
-      //TODO scarluccio: check if product is already in cart
 
       let exists = false;
       this.productTuples.forEach(productTuple => {
