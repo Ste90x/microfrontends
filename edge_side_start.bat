@@ -3,11 +3,11 @@ echo Starting Servers...
 
 echo starting express.js-server..
 CD %~dp0edge-side-include
-start nodemon server.js
+start npm start
 
 echo starting react-client...
 CD %~dp0edge-side-include\public\teamBlue\edge-side-product
-start npm start
+start npm run build
 
 REM echo starting angular-client...
 REM CD %~dp0edge-side-include\public\teamRed\edge-side-product-details
@@ -21,6 +21,5 @@ echo starting proxy-server...
 CD %~dp0edge-side-include\proxy
 start npm start
 
-REM TODO scarluccio: proxy?
 CD %~dp0
 start "" http://localhost:1000
