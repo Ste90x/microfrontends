@@ -14,7 +14,7 @@ import { ProductDetailsComponent } from "./components/product-details/product-de
     ProductVisualisationComponent,
     ProductDetailsComponent
   ],
-  imports: [BrowserModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule.withServerTransition({ appId: 'serverApp' }), FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })

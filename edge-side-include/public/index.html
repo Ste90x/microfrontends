@@ -19,15 +19,17 @@
 
   <div class="navbar-fixed">
     <nav>
-      <div class="nav-wrapper cyan darken-4">
-        <a href="" class="brand-logo center">IFrame Microfrontends</a>
+      <div class="nav-wrapper red darken-4">
+        <a href="" class="brand-logo center">ESI Microfrontends</a>
         <ul class="right hide-on-med-and-down"></ul>
       </div>
     </nav>
   </div>
 
   <main class="apps-hook">
-    <div class="product-details"></div>
+    <div class="product-details">
+      <esi:include src="http://localhost:4200"></esi:include>
+    </div>
     <div class="product-list">
       <esi:include src="http://localhost:3000"></esi:include>
     </div>

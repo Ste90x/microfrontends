@@ -10,7 +10,6 @@ const esi = new ESI({});
 const app = express();
 
 const proxyUrl = "http://localhost:5000";
-const reactUrl = "http://localhost:3000";
 
 app.use(esiMiddleware());
 
@@ -20,6 +19,7 @@ app.use("/", proxy(proxyUrl,
             if (proxyRes.headers["content-type"] === "text/html") {
                 return esi.process(proxyResData.toString());
             }
+            // TODO scarluccio: send 404
             return proxyResData;
         }
     }
