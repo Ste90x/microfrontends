@@ -14,7 +14,7 @@ main {
   grid-template-rows: 60vh 32vh;
 }
 
-product-details {
+.product-details {
   grid-area: details;
 }
 
@@ -26,7 +26,6 @@ product-details {
   height: 100%;
 }
 
-cart-list {
+.cart-list {
   grid-area: cart;
 }
-
