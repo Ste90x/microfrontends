@@ -63,13 +63,14 @@ app-root {
 
     display: inline-grid;
     gap: 10px;
-    grid-template-areas: "amount btn";
+    grid-template-areas: "prodamount btn";
     grid-template-columns: 1fr 1fr;
   }
 
-  form select#prod-amount {
-    grid-area: amount;
+  select#prod-amount {
+    grid-area: prodamount;
 
+    display: grid;
     border: none;
     border-radius: 5px;
     box-shadow: none;
@@ -94,6 +95,7 @@ app-root {
   form button.add-to-cart-btn {
     grid-area: btn;
 
+    display: grid;
     background-color: rgb(160, 0, 0);
     border-radius: 5px;
     border: none;
@@ -102,6 +104,8 @@ app-root {
 
     align-self: center;
     justify-self: start;
+
+    justify-content: center;
 
     color: white;
     font-size: 1.5rem;

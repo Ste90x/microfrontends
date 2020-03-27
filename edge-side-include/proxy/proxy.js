@@ -11,7 +11,7 @@ const angularUrl = "http://localhost:4200";
 const reactUrl = "http://localhost:3000";
 
 const esi = new ESI({
-    allowedHosts: [angularUrl, reactUrl]
+    allowedHosts: [reactUrl, angularUrl]
 });
 
 const app = express();

@@ -156,8 +156,7 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
             "browserTarget": "edge-side-product-details:build",
-            "serverTarget": "edge-side-product-details:server",
-            "proxyConfig": "proxy.conf.json"
+            "serverTarget": "edge-side-product-details:server"
           },
           "configurations": {
             "production": {
