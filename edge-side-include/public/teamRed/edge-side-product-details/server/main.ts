@@ -3,9 +3,16 @@ import { AppModule } from "./app.module";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors();
-  app.setGlobalPrefix("");
-  await app.listen(process.env.PORT || 4000);
+  app.enableCors(
+  //   {
+  //   origin: true,
+  //   methods: "OPTIONS,GET,HEAD,PUT,PATCH,POST,DELETE",
+  //   preflightContinue: false,
+  //   optionsSuccessStatus: 204,
+  //   allowedHeaders: "Content-Type, Accept"
+  // }
+  );
+  await app.listen(process.env.PORT || 4200);
 }
 
 // Webpack will replace 'require' with '__webpack_require__'

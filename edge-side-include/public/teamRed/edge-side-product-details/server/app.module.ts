@@ -1,4 +1,4 @@
-import { Module } from "@nestjs/common";
+import { Module, MiddlewareConsumer } from "@nestjs/common";
 import { AngularUniversalModule } from "@nestjs/ng-universal";
 import { join } from "path";
 import { AppServerModule } from "../src/main.server";

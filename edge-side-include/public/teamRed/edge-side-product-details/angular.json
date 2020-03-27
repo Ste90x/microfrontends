@@ -66,11 +66,13 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "edge-side-product-details:build"
+            "browserTarget": "edge-side-product-details:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "edge-side-product-details:build:production"
+              "browserTarget": "edge-side-product-details:build:production",
+              "proxyConfig": "proxy.conf.json"
             }
           }
         },
@@ -154,7 +156,8 @@
           "builder": "@nguniversal/builders:ssr-dev-server",
           "options": {
             "browserTarget": "edge-side-product-details:build",
-            "serverTarget": "edge-side-product-details:server"
+            "serverTarget": "edge-side-product-details:server",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

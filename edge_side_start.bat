@@ -7,11 +7,11 @@ start npm start
 
 echo starting react-client...
 CD %~dp0edge-side-include\public\teamBlue\edge-side-product
-start npm run build
+start npm run dev
 
 REM echo starting angular-client...
 REM CD %~dp0edge-side-include\public\teamRed\edge-side-product-details
-REM start ng serve
+REM start npm run dev:ssr
 
 REM echo starting vue-client...
 REM CD %~dp0edge-side-include\public\teamGreen\edge-side-cart
