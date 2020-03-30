@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import "./ProductSuggestionBar.scss";
 import Product from "../Product/Product";
 import axios from "axios";
 
 const ProductSuggestionBar = () => {
   const [productsState, setProductsState] = useState([]);
+  const appsHookId = ".apps-hook";
 
   useEffect(() => {
     axios
@@ -20,9 +22,12 @@ const ProductSuggestionBar = () => {
   }, []);
 
   const onSelectedHandler = (event, index) => {
-    //TODO scarluccio: send data to other frameworks
-    const productSelectedEvent = new CustomEvent("selectedProductId", event.target );
-    document.querySelector(".apps-hook").dispatchEvent(productSelectedEvent);
+    const productSelectedEvent = new CustomEvent("selectedProductId", { detail: event.target.id });
+    if (document.querySelector(appsHookId) !== null) {
+      document.querySelector(appsHookId).dispatchEvent(productSelectedEvent);
+    } else {
+      console.log(`No element with class ${appsHookId} found`)
+    }
   };
 
   return (

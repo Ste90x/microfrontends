@@ -9,25 +9,25 @@ import { HttpClient } from "@angular/common/http";
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
-  domObject: any;
   product: Product;
+  appsHookId = ".apps-hook";
 
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
-    window.document
-      .querySelector(".apps-hook")
-      .addEventListener("selectedProductId", (event: any) => {
-        this.http
-          .get(
-            "http://localhost:5000/products/" + event.explicitOriginalTarget.id
-          )
-          .subscribe((response: Product) => {
-            // console.log(response);
-            if (response !== null) {
-              this.product = response;
-            }
-          });
-      });
+    if (window.document.querySelector(this.appsHookId) !== null) {
+      window.document
+        .querySelector(this.appsHookId)
+        .addEventListener("selectedProductId", (event: any) => {
+          this.http
+            .get("http://localhost:5000/products/" + event.detail)
+            .subscribe((response: Product) => {
+              // console.log(response);
+              if (response !== null) {
+                this.product = response;
+              }
+            });
+        });
+    }
   }
 }

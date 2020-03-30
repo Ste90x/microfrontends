@@ -30,7 +30,7 @@ app.use("*", (req, res, next) => {
 });
 
 // react middleware
-app.use("/_next/*", (req, res, next) => {
+app.use("*/static/*", (req, res, next) => {
     res.redirect(`${reactUrl}${req.originalUrl}`);
     next();
 });
