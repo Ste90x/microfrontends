@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { Product } from "./models/Product/product.model";
+import { HttpClient } from "@angular/common/http";
 
 @Component({
   selector: "app-root",
@@ -8,15 +9,25 @@ import { Product } from "./models/Product/product.model";
   encapsulation: ViewEncapsulation.None
 })
 export class AppComponent implements OnInit {
+  domObject: any;
   product: Product;
 
+  constructor(private http: HttpClient) {}
+
   ngOnInit() {
-    this.product = {
-      id: "0",
-      name: "Pizza",
-      price: "4,99",
-      description: "SUCH GOOD, MUCH WOW!",
-      image: "https://images.alphacoders.com/959/thumb-1920-959369.jpg"
-    };
+    window.document
+      .querySelector(".apps-hook")
+      .addEventListener("selectedProductId", (event: any) => {
+        this.http
+          .get(
+            "http://localhost:5000/products/" + event.explicitOriginalTarget.id
+          )
+          .subscribe((response: Product) => {
+            // console.log(response);
+            if (response !== null) {
+              this.product = response;
+            }
+          });
+      });
   }
 }

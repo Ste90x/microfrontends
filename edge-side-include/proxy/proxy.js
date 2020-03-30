@@ -53,7 +53,7 @@ app.use("/main*.js", (req, res, next) => {
     res.redirect(`${angularUrl}${api}${req.originalUrl}`);
     next();
 });
-app.use("/browser-sync-client*", (req, res, next) => {
+app.use("/browser-sync*", (req, res, next) => {
     res.redirect(`${angularUrl}${api}${req.originalUrl}`);
     next();
 });

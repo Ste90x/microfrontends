@@ -16,7 +16,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: teal;
+  background-color: rgb(160, 0, 0);
 }
 
 body::-webkit-scrollbar-thumb {
@@ -45,7 +45,10 @@ code {
 .card {
   background-color: whitesmoke;
 }
-
+.card:focus {
+  background-color: rgb(160, 0, 0);
+  color: whitesmoke;
+}
 .card:hover {
   transition: transform 0.2s;
   transform: scale(1.1);

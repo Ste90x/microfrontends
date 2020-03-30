@@ -5,8 +5,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-// app-root > div {
-app-root {
+app-root > div {
   display: grid;
   grid-template-columns: 1fr 1fr;
 
@@ -63,14 +62,13 @@ app-root {
 
     display: inline-grid;
     gap: 10px;
-    grid-template-areas: "prodamount btn";
+    grid-template-areas: "amount btn";
     grid-template-columns: 1fr 1fr;
   }
 
-  select#prod-amount {
-    grid-area: prodamount;
+  form select#prod-amount {
+    grid-area: amount;
 
-    display: grid;
     border: none;
     border-radius: 5px;
     box-shadow: none;
@@ -95,7 +93,6 @@ app-root {
   form button.add-to-cart-btn {
     grid-area: btn;
 
-    display: grid;
     background-color: rgb(160, 0, 0);
     border-radius: 5px;
     border: none;
@@ -105,15 +102,13 @@ app-root {
     align-self: center;
     justify-self: start;
 
-    justify-content: center;
-
     color: white;
     font-size: 1.5rem;
   }
 
   form button.add-to-cart-btn:active {
     background-color: whitesmoke;
-    color: rgb(160, 0, 0);
+    color: teal;
     border: 1px solid rgb(160, 0, 0);
   }
 }
