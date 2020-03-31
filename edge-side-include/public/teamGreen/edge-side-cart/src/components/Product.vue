@@ -3,7 +3,6 @@
     <img :src="product.image" :alt="product.name" class="prod-img" />
     <div class="sub-grid">
       <h2 class="prod-name">{{ product.name }}</h2>
-      <!-- <p class="prod-desc">{{ product.description }}</p> -->
       <span>
         <p class="prod-price">{{ product.price }} €</p>
       </span>

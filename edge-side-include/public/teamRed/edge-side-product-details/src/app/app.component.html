@@ -1,8 +1,7 @@
 <div *ngIf="this.product !== undefined">
   <app-product-visualisation [product]="product"></app-product-visualisation>
-  <app-product-details
-    [product]="product"
-  ></app-product-details>
+  <app-product-details [product]="product" (amountSubmitted)="onProductAndAmountSubmitted($event)">
+  </app-product-details>
 </div>
 <h1 *ngIf="this.product === undefined">
   Please select a Product.

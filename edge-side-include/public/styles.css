@@ -5,8 +5,9 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
-main {
+#apps-hook {
   display: grid;
+
   grid-template-areas:
     "details cart"
     "products cart";
@@ -20,10 +21,6 @@ main {
 
 #product-list {
   grid-area: products;
-
-  border: none;
-  width: 100%;
-  height: 100%;
 }
 
 #cart-list {

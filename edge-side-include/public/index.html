@@ -27,23 +27,17 @@
     </nav>
   </div>
 
-  <main class="apps-hook">
+  <main id="apps-hook">
     <div id="product-details">
       <esi:include src="http://localhost:4200"></esi:include>
     </div>
     <div id="product-list">
       <esi:include src="http://localhost:3000"></esi:include>
     </div>
-    <div id="cart-list"></div>
+    <div id="cart-list">
+      <esi:include src="http://localhost:8080"></esi:include>
+    </div>
   </main>
-
-  <!-- <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      document.querySelector(".apps-hook").addEventListener("selectedProductId", (event) => {
-        console.log(event);
-      });
-    });
-  </script> -->
 </body>
 
 </html>

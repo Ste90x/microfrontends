@@ -4,7 +4,7 @@ import axios from "axios";
 
 const ProductSuggestionBar = () => {
   const [productsState, setProductsState] = useState([]);
-  const appsHookId = ".apps-hook";
+  const appsHookId = "#apps-hook";
 
   useEffect(() => {
     axios

@@ -7,11 +7,6 @@
         <p class="prod-amount">x {{ tuple.amount }}</p>
       </div>
     </main>
-    <!-- <footer>
-      <button class="buy-btn">
-        Buy for <span class="price">{{ calculateSum() }}</span> €
-      </button>
-    </footer> -->
   </div>
 </template>
 
@@ -19,27 +14,25 @@
 import Product from "./Product";
 export default {
   components: { appProduct: Product },
-  props: ["productTuples"],
-  methods: {
-    calculateSum() {}
-  }
+  props: ["productTuples"]
 };
 </script>
 <style lang="scss">
+$themeColor: rgb(160, 0, 0);
+
 #cart {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  border-left: 1px solid teal;
+  height: 93vh;
+  border-left: 1px solid $themeColor;
 
   .cart-header {
-    width: 100vw;
-    background-color: teal;
+    background-color: $themeColor;
 
     text-align: center;
     font-weight: bold;
     font-size: xx-large;
-    color: white;
+    color: whitesmoke;
   }
 
   .cart-prod-container > div {

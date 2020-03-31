@@ -7,19 +7,20 @@ start npm start
 
 echo starting react-client...
 CD %~dp0edge-side-include\public\teamBlue\edge-side-product
-start npm run dev
+start npm start
 
 echo starting angular-client...
 CD %~dp0edge-side-include\public\teamRed\edge-side-product-details
-start npm run dev:ssr
+start npm start
 
-REM echo starting vue-client...
-REM CD %~dp0edge-side-include\public\teamGreen\edge-side-cart
-REM start npm run serve
+echo starting vue-client...
+CD %~dp0edge-side-include\public\teamGreen\edge-side-cart
+start npm start
 
 echo starting proxy-server...
 CD %~dp0edge-side-include\proxy
 start npm start
 
 CD %~dp0
+timeout 5
 start "" http://localhost:1000

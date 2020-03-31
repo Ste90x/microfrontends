@@ -9,9 +9,10 @@ const port = 1000;
 const originUrl = "http://localhost:5000";
 const angularUrl = "http://localhost:4200";
 const reactUrl = "http://localhost:3000";
+const vueUrl = "http://localhost:8080";
 
 const esi = new ESI({
-    allowedHosts: [reactUrl, angularUrl]
+    allowedHosts: [reactUrl, angularUrl, vueUrl]
 });
 
 const app = express();
@@ -32,6 +33,12 @@ app.use("*", (req, res, next) => {
 // react middleware
 app.use("*/static/*", (req, res, next) => {
     res.redirect(`${reactUrl}${req.originalUrl}`);
+    next();
+});
+
+// vue middleware
+app.use("/js/*", (req, res, next) => {
+    res.redirect(`${vueUrl}${req.originalUrl}`);
     next();
 });
 
@@ -57,13 +64,17 @@ app.use("/browser-sync*", (req, res, next) => {
     res.redirect(`${angularUrl}${api}${req.originalUrl}`);
     next();
 });
-app.use("/styles*", (req, res, next) => {
+app.use("/sockjs-node*", (req, res, next) => {
+    res.redirect(`${angularUrl}${api}${req.originalUrl}`);
+    next();
+});
+app.use("/styles*.js", (req, res, next) => {
     res.redirect(`${angularUrl}${api}${req.originalUrl}`);
     next();
 });
 //---------------
 
-app.use("(/)", (req, res, next) => { console.log(req.url); next(); },
+app.use("/", (req, res, next) => { console.log(req.url); next(); },
     proxy(originUrl,
         {
             timeout: 2000,

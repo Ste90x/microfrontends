@@ -10,7 +10,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class AppComponent implements OnInit {
   product: Product;
-  appsHookId = ".apps-hook";
+  appsHookId = "#apps-hook";
 
   constructor(private http: HttpClient) {}
 
@@ -28,6 +28,19 @@ export class AppComponent implements OnInit {
               }
             });
         });
+    }
+  }
+
+  onProductAndAmountSubmitted(event: any) {
+    const selectedAmountOfProduct = new CustomEvent("selectedAmountOfProduct", {
+      detail: event
+    });
+    if (window.document.querySelector(this.appsHookId) !== null) {
+      window.document
+        .querySelector(this.appsHookId)
+        .dispatchEvent(selectedAmountOfProduct);
+    } else {
+      console.log(`No element with an id of ${this.appsHookId} found`);
     }
   }
 }
