@@ -1,6 +1,7 @@
 import React from "react";
+import "./Product.scss";
 
-const Product = props => (
+const Product = (props) => (
   <button
     id={props.id}
     onClick={props.selectedHandler}
