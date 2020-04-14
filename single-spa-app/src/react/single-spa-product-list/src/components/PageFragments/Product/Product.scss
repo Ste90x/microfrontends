@@ -1,0 +1,23 @@
+.card {
+  background-color: whitesmoke;
+  max-width: 12vw;
+}
+
+.card:hover {
+  transition: transform 0.2s;
+  transform: scale(1.1);
+}
+
+.card:focus {
+  background-color: #1a237e;
+  color: whitesmoke;
+}
+
+.prodImg {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+button {
+  border: none;
+}

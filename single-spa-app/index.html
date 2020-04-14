@@ -1,47 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html>
 
-    <title>SingleSPA MFE</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>SingleSPA MFE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="importmap-type" content="systemjs-importmap">
+  <script type="systemjs-importmap">
+      {
+        "imports": {
+          "single-spa-product-details": "http://localhost:4200/main.js",
+          "single-spa-product-list": "http://localhost:3000/bundle.js",
+          "single-spa-cart":"http://localhost:8080/js/app.js",
+          "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.1.1/lib/system/single-spa.min.js",
+          "global-css": "http://localhost:5000/global.css"
+        }
+      }
+    </script>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/single-spa@5.1.1/lib/system/single-spa.min.js" as="script"
+    crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/zone.js/dist/zone.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@1.12.0/dist/import-map-overrides.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.2.5/dist/system.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.2.5/dist/extras/amd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.2.5/dist/extras/named-exports.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/systemjs@6.2.5/dist/extras/named-register.min.js"></script>
 
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css"
-    />
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+  <!-- Compiled and minified JavaScript -->
+  <script asnyc src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script async src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script
-      defer
-      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
-    ></script>
+  <link rel="stylesheet" href="http://localhost:5000/global.css" />
+</head>
 
-    <link rel="stylesheet" href="global.css" />
-  </head>
+<body>
+  <script>
+    System.import('single-spa').then(function (singleSpa) {
+      singleSpa.registerApplication(
+        'single-spa-product-details',
+        System.import('single-spa-product-details'),
+        location => location.pathname.startsWith('/')
+      );
+      singleSpa.registerApplication(
+        "single-spa-product-list",
+        System.import("single-spa-product-list"),
+        location => (location.pathname.startsWith('/'))
+      );
+      singleSpa.registerApplication(
+        'single-spa-cart',
+        System.import('single-spa-cart'),
+        location => location.pathname.startsWith('/')
+      );
+      singleSpa.start();
+    })
+  </script>
 
-  <body>
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper indigo darken-4">
-          <a href="" class="brand-logo center">SingleSPA MFE</a>
-          <ul class="right hide-on-med-and-down"></ul>
-        </div>
-      </nav>
-    </div>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper indigo darken-4">
+        <a href="" class="brand-logo center">SingleSPA MFE</a>
+        <ul class="right hide-on-med-and-down"></ul>
+      </div>
+    </nav>
+  </div>
 
-    <main class="apps-hook">
-      <div id="product-list" class="product-list"></div>
-      <div id="cart-list" class="cart-list"></div>
-      <div id="product-details" class="product-details"></div>
-    </main>
+  <main class="apps-hook">
+    <div id="single-spa-product-list" class="product-list"></div>
+    <div id="single-spa-cart" class="cart-list"></div>
+    <div id="single-spa-product-details" class="product-details"></div>
+  </main>
 
-    <script src="/dist/single-spa.config.js"></script>
-  </body>
+  <import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full>
+</body>
+
 </html>
