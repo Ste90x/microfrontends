@@ -28,9 +28,9 @@ router.get("/", function(req, res) {
   res.sendFile(path.join(__dirname + "/index.html"));
 });
 
-router.get("/global.css", function(req, res) {
-  res.sendFile(path.join(__dirname + "/global.css"));
-});
+// router.get("/global.css", function(req, res) {
+//   res.sendFile(path.join(__dirname + "/global.css"));
+// });
 
 router.get("/products", function (req, res) {
   console.log("Request at /products incoming...");
@@ -45,6 +45,9 @@ router.get("/products/:id", function (req, res) {
   let filteredProduct = _.where(products, { id: req.params.id });
   res.send(filteredProduct[0]);
 });
+
+// add static folder
+app.use(express.static("public"));
 
 //add the router
 app.use("/", router);
