@@ -8,7 +8,7 @@
 
 1. Use the "setup.bat" to install all packages and dependencies
 
-2. Use the "client_side_start.bat" to start all servers and open up the browserpage
+2. Use the "start.bat" to start all servers and open up the browserpage
 
 #### Information:
 
