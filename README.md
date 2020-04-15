@@ -22,6 +22,6 @@
 
 - Proxy -> Express.js -> http://localhost:1000 (MAIN PAGE)
 - Portal -> VanillaJS/Express.js -> http://localhost:5000
-- Product list -> React -> http://localhost:3000
-- Product details -> Angular -> http://localhost:4200
-- Cart -> VueJS -> http://localhost:8080
+- Product list -> React 16 -> http://localhost:3000
+- Product details -> Angular 9 -> http://localhost:4200
+- Cart -> Vue 2 -> http://localhost:8080
