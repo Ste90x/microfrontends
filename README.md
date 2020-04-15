@@ -1,17 +1,27 @@
-# microfrontends
+# Edge Side Composition/Include Microfrontends
 
-ONLY CLIENT SIDE WORKS FOR NOW
+#### Requirements:
 
-requirements: 
 - Node.js
+
+#### Instructions
 
 1. Use the "setup.bat" to install all packages and dependencies
 
-2. Use the "client_side_start.bat" to start all servers and open up the browserpage
+2. Use the "start.bat" to start all servers and open up the browserpage
 
-!!! The mainpage may take a while to render everything correctly due to the servers of all frameworks that need to be started first. Check the current status of the servers in their respective cmd-windows. !!!
+## !!! The main page may take a while to render everything correctly due to the servers of all frameworks that need to be started first. Check the current status of the servers in their respective terminals. !!!
 
-Portal -> VanillaJS/Express.js -> localhost:5000 (MAIN PAGE) 
-Product list -> React -> localhost:3000
-Product details -> Angular -> localhost:4200
-Cart -> VueJS -> localhost:8080
+## FIXMEs:
+
+- Proxy-server can be implemented better with a custom webpack-script that reduces bundles to single distinct files!
+- CORS issues when the proxy tries to access to the scripts from the frameworks -> especially angular. Probably also fixable with better Webpack knowledge.
+- #### To try the implementation right now you require Mozilla Firefox and the browser-extension: "Cors Everywhere" https://addons.mozilla.org/en-US/firefox/addon/cors-everywhere
+
+#### Domains
+
+- Proxy -> Express.js -> http://localhost:1000 (MAIN PAGE)
+- Portal -> VanillaJS/Express.js -> http://localhost:5000
+- Product list -> React -> http://localhost:3000
+- Product details -> Angular -> http://localhost:4200
+- Cart -> VueJS -> http://localhost:8080

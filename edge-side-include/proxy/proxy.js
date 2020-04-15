@@ -17,6 +17,7 @@ const esi = new ESI({
 
 const app = express();
 
+// FIXME scarluccio: Angular SSR TEST 
 const api = "";
 // const api = "/api";
 
