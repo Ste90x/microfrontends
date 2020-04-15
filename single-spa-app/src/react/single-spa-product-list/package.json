@@ -12,10 +12,8 @@
     "single-spa-react": "^2.13.0"
   },
   "scripts": {
-    "start": "npm run serve:single-spa",
-    "build": "npm run build:single-spa",
-    "build:single-spa": "webpack --mode production",
-    "serve:single-spa": "webpack-dev-server --open --mode development"
+    "start": "webpack-dev-server --open --mode development",
+    "build": "webpack --mode production"
   },
   "eslintConfig": {
     "extends": "react-app"

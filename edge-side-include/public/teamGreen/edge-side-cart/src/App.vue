@@ -27,9 +27,9 @@ export default {
     };
   },
   beforeMount() {
-    console.log("TEST 1");
+    // console.log("TEST 1");
     if (document.querySelector(this.appsHookId) !== null) {
-      console.log("TEST 2");
+      // console.log("TEST 2");
       document
         .querySelector(this.appsHookId)
         .addEventListener("selectedAmountOfProduct", event => {

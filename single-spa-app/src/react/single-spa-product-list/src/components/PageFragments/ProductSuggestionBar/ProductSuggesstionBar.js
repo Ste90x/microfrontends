@@ -5,6 +5,7 @@ import axios from "axios";
 
 const ProductSuggestionBar = () => {
   const [productsState, setProductsState] = useState([]);
+  const appsHookId = "#apps-hook";
 
   useEffect(() => {
     axios
@@ -20,7 +21,14 @@ const ProductSuggestionBar = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  const onSelectedHandler = (event, index) => {};
+  const onSelectedHandler = (event, index) => {
+    const productSelectedEvent = new CustomEvent("selectedProductId", { detail: event.target.id });
+    if (document.querySelector(appsHookId) !== null) {
+      document.querySelector(appsHookId).dispatchEvent(productSelectedEvent);
+    } else {
+      console.log(`No element with id: "${appsHookId}" found!`)
+    }
+  };
 
   return (
     <section className="suggestionBar columns is-1">

@@ -11,27 +11,42 @@ export default {
   name: "App",
   data: () => {
     return {
+      appsHookId: "#apps-hook",
       productTuples: [
-        {
-          // TODO scarrluccio: Remove Mock
-          amount: 5,
-          product: {
-            id: "0",
-            name: "Pizza",
-            price: "4,99",
-            description: "SUCH GOOD, MUCH WOW!",
-            image: "https://images.alphacoders.com/959/thumb-1920-959369.jpg",
-          },
-        },
-      ],
+        // {
+        //   amount: 5,
+        //   product: {
+        //     id: "0",
+        //     name: "Pizza",
+        //     price: "4,99",
+        //     description: "SUCH GOOD, MUCH WOW!",
+        //     image: "https://images.alphacoders.com/959/thumb-1920-959369.jpg",
+        //   },
+        // },
+      ]
     };
   },
-  beforeCreate() {},
+  beforeMount() {
+    // console.log("TEST 1");
+    if (document.querySelector(this.appsHookId) !== null) {
+      // console.log("TEST 2");
+      document
+        .querySelector(this.appsHookId)
+        .addEventListener("selectedAmountOfProduct", event => {
+          console.log(event.detail);
+          this.addToProductTuples(
+            event.detail,
+            event.detail.product,
+            event.detail.amount
+          );
+        });
+    }
+  },
   components: { appCart: Cart },
   methods: {
     addToProductTuples(newProductTuple, body, value) {
       let exists = false;
-      this.productTuples.forEach((productTuple) => {
+      this.productTuples.forEach(productTuple => {
         if (productTuple.product.id === newProductTuple.product.id) {
           productTuple.amount += parseInt(newProductTuple.amount);
           exists = true;
@@ -41,11 +56,11 @@ export default {
       if (exists === false) {
         this.productTuples.push({
           product: body,
-          amount: parseInt(value),
+          amount: parseInt(value)
         });
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
