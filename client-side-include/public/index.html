@@ -1,96 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Compiled and minified CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-    />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <title>Iframe MFE</title>
+  <link type="text/css" rel="stylesheet" href="global.css" />
 
-    <link type="text/css" rel="stylesheet" href="styles.css" />
-    <title>iFrame Portal App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" />
 
-    <div class="navbar-fixed">
-      <nav>
-        <div class="nav-wrapper cyan darken-4">
-          <a href="" class="brand-logo center">IFrame Microfrontends</a>
-          <ul class="right hide-on-med-and-down"></ul>
-        </div>
-      </nav>
-    </div>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
 
-    <main class="apps-hook">
-      <product-details></product-details>
-      <product-list></product-list>
-      <cart-list></cart-list>
-    </main>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
 
-    <script src="ProductDetailsCustomElement.js" async></script>
-    <script src="ProductListCustomElement.js" async></script>
-    <script src="CartListCustomElement.js" async></script>
-    <script>
-      let eventMethod = window.addEventListener
-        ? "addEventListener"
-        : "attachEvent";
-      let eventer = window[eventMethod];
-      let messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+  <header class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper cyan darken-4">
+        <a href="" class="brand-logo center">IFrame MFE</a>
+        <ul class="right hide-on-med-and-down"></ul>
+      </div>
+    </nav>
+  </header>
 
-      // Listen to message from child window
-      eventer(
-        messageEvent,
-        function(e) {
-          // console.log(e.origin);
-          // TODO scarluccio: USE ENVIRONMENT VARIABLES
-          if (e.origin === "http://localhost:3000") {
-            sessionStorage.setItem(
-              "selectedProductId",
-              e.data.selectedProductId
+  <main class="apps-hook">
+    <iframe id="product-list" class="product-list" src="http://localhost:3000"></iframe>
+    <iframe id="selected-product-details" class="selected-product-details" src="http://localhost:4200"></iframe>
+    <iframe id="cart-list" class="cart-list" src="http://localhost:8080"></iframe>
+  </main>
+
+  <script>
+    let eventMethod = window.addEventListener
+      ? "addEventListener"
+      : "attachEvent";
+    let eventer = window[eventMethod];
+    let messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+    // Listen to message from child window
+    eventer(
+      messageEvent,
+      function (e) {
+        // console.log(e.origin);
+        // TODO scarluccio: USE ENVIRONMENT VARIABLES
+        if (e.origin === "http://localhost:3000") {
+          sessionStorage.setItem(
+            "selectedProductId",
+            e.data.selectedProductId
+          );
+
+          window.document
+            .getElementById("selected-product-details")
+            .contentWindow.postMessage(
+              {
+                message: "selectedProductId",
+                value: sessionStorage.getItem("selectedProductId")
+              },
+              "http://localhost:4200"
             );
+        }
+        if (e.origin === "http://localhost:4200") {
+          sessionStorage.setItem(
+            "selectedAmountOfProduct",
+            e.data.selectedAmountOfProduct
+          );
 
-            window.document
-              .getElementById("selected-product-details")
-              .contentWindow.postMessage(
+          window.document
+            .getElementById("cart-list")
+            .contentWindow.postMessage(
+              [
                 {
                   message: "selectedProductId",
                   value: sessionStorage.getItem("selectedProductId")
                 },
-                "http://localhost:4200"
-              );
-          }
-          if (e.origin === "http://localhost:4200") {
-            sessionStorage.setItem(
-              "selectedAmountOfProduct",
-              e.data.selectedAmountOfProduct
+                {
+                  message: "selectedAmountOfProduct",
+                  value: sessionStorage.getItem("selectedAmountOfProduct")
+                }
+              ],
+              "http://localhost:8080"
             );
+        }
+      },
+      false
+    );
+  </script>
+</body>
 
-            window.document
-              .getElementById("cart-list")
-              .contentWindow.postMessage(
-                [
-                  {
-                    message: "selectedProductId",
-                    value: sessionStorage.getItem("selectedProductId")
-                  },
-                  {
-                    message: "selectedAmountOfProduct",
-                    value: sessionStorage.getItem("selectedAmountOfProduct")
-                  }
-                ],
-                "http://localhost:8080"
-              );
-          }
-        },
-        false
-      );
-    </script>
-  </body>
 </html>
