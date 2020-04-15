@@ -10,7 +10,8 @@
 
 2. Use the "start.bat" to start all servers and open up the browserpage
 
-## !!! The main page may take a while to render everything correctly due to the servers of all frameworks that need to be started first. Check the current status of the servers in their respective terminals. !!!
+#### Information
+### !!! The main page may take a while to render everything correctly due to the servers of all frameworks that need to be started first. Check the current status of the servers in their respective terminals. !!!
 
 #### Domains
 
