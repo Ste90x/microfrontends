@@ -6,13 +6,13 @@
 
 #### Instructions
 
-1. Use the "setup.bat" to install all packages and dependencies
+1. ``cd single-spa-app`` & ``setup.bat`` to install all packages and dependencies
 
-2. Use the "start.bat" to start all servers and open up the browserpage
+2. ``start.bat`` after installation to start all servers and open up the browserpage
 
 #### Information:
 
-### !!! The mainpage may take a while to render everything correctly due to the servers of all frameworks that need to be started first. Check the current status of the servers in their respective terminals. !!!
+### !!! The mainpage may take a while to render everything correctly due to the servers of all frameworks that need to be started first. Especially Angular is pretty slow. Check the current status of the servers in their respective terminals. !!!
 
 ### Single SPA uses Angular 8 because it doesn't support 9 yet.
 
