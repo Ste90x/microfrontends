@@ -2,7 +2,7 @@
 echo Starting Setup
 
 echo setting up express.js-server...
-CD %~dp0edge-side-include
+CD %~dp0
 call npm install
 
 echo setting up react-client..
