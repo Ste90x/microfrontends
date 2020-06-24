@@ -43,7 +43,6 @@ app.use("/js/*", (req, res, next) => {
     next();
 });
 
-//TODO scarluccio: to be implemented better
 // angular middleware
 app.use("/runtime*.js", cors(), (req, res, next) => {
     res.redirect(`${angularUrl}${api}${req.originalUrl}`);

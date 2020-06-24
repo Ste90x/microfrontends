@@ -10,7 +10,7 @@ start npm start
 
 echo starting angular-client...
 CD %~dp0src\angular\edge-side-product-details
-start npm run dev:ssr
+start npm start
 
 echo starting vue-client...
 CD %~dp0src\vue\edge-side-cart
