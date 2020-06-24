@@ -22,7 +22,7 @@
 
 #### Domains
 
-- Proxy -> Express.js -> http://localhost:1000 (MAIN PAGE)
+- Proxy -> Express.js -> http://localhost:3001 (MAIN PAGE)
 - Portal -> VanillaJS/Express.js -> http://localhost:5000
 - Product list -> React 16 -> http://localhost:3000
 - Product details -> Angular 9 (Server Side Rendered)-> http://localhost:4200

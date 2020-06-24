@@ -22,4 +22,4 @@ start npm start
 
 CD %~dp0
 timeout 5
-start "" http://localhost:1000
+start "" http://localhost:3001
