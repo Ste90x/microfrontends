@@ -6,9 +6,9 @@
 
 #### Instructions
 
-1. `cd client-side-include` & `setup.bat` to install all packages and dependencies
+1. `cd client-side-include` & `setup.bat`on Windows or `./setup.sh` on OSX to install all packages and dependencies
 
-2. `start.bat` after installation to start all servers and open up the browserpage
+2. `start.bat` on Windows or `./start.sh` on OSX after installation to start all servers and open up the browserpage
 
 #### Information
 
